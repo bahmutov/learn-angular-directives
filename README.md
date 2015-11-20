@@ -2,6 +2,11 @@
 
 > Self-directed study of Angular 1 built-in directives, including a homework assignment
 
+[![Build status][solution-ci-image] ][solution-ci-url]
+
+[solution-ci-image]: https://travis-ci.org/bahmutov/learn-angular-directives.png?branch=master
+[solution-ci-url]: https://travis-ci.org/bahmutov/learn-angular-directives
+
 ## Angular 1 directives
 
 After completing this study you will be able to:
