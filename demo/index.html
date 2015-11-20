@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Angular directives - demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script>
+    angular.module('DemoApp', [])
+      .controller('StringsController', function ($scope) {
+        $scope.strings = ['foo', 'bar', 'baz', 'longer string'];
+      })
+      .controller('ObjectsController', function ($scope) {
+        $scope.messages = [{
+          message: 'hi',
+          from: 'Friendly person'
+        }, {
+          message: 'bye',
+          from: 'Mister X'
+        }];
+      })
+  </script>
+</head>
+<body ng-app="DemoApp">
+  <h1>Small demos from README</h1>
+  <h2>List of strings</h2>
+  <ul ng-controller="StringsController">
+    <li ng-repeat="s in strings">{{ s }} has {{ s.length }} characters</li>
+  </ul>
+
+  <h2>List of objects</h2>
+  <ul ng-controller="ObjectsController">
+    <li ng-repeat="m in messages">
+      message <strong>{{ $index + 1}}</strong>
+      - {{ m.from }} says "{{ m.message }}"
+    </li>
+  </ul>
+</body>
+</html>

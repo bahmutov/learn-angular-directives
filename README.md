@@ -57,6 +57,17 @@ using Angular.
 
 [cities-ref]: http://www.cntraveler.com/galleries/2014-10-20/top-25-cities-in-the-world-readers-choice-awards-2014/30
 
+### Sandbox
+
+In addition to the main large "cities" page you are going to make live using Angular,
+I provided another static page [demo/index.html](demo/index.html) that shows the little
+code snippets from this README file. These snippets are live, to make sure the snippets
+actually do what I claim they do, and for you to play around with them.
+
+    open demo/index.html
+
+You should see list of items, a couple of buttons, etc.
+
 ## Showing list of items using `ng-repeat`
 
 We start making our static page dynamic by removing all the duplicate markup and
@@ -74,7 +85,7 @@ objects. Let us say we have a list of strings and want to put them into `<li>`
 elements. The application's controller code is simple
 
 ```js
-function MyController($scope) {
+function StringsController($scope) {
   $scope.strings = ['foo', 'bar', 'baz'];
 }
 ```
@@ -83,7 +94,7 @@ and the markup uses `ng-repeat` directive on the element we want to *repeat*
 for each item in the list. In this case it would be `<li>` element
 
 ```html
-<ul ng-controller="MyController">
+<ul ng-controller="StringsController">
   <li ng-repeat="s in strings">{{ s }}</li>
 </ul>
 ```
@@ -98,8 +109,8 @@ into the template there and will add it to the document object model (DOM). Thus
 become something like this.
 
 ```html
-<ul ng-controller="MyController">
-  <!-- ng-repeat "s in strings" -->
+<ul ng-controller="StringsController">
+  <!-- ng-repeat: s in strings -->
   <li>foo</li>
   <li>bar</li>
   <li>baz</li>
@@ -114,6 +125,48 @@ Pretty cool.
 The list can have anything inside, including objects. We just need to use dot notation
 to access nested properties. For example, in the list anove, let us also show the length
 of each string.
+
+```html
+<li ng-repeat="s in strings">{{ s }} has {{ s.length }} characters</li>
+```
+
+Or if you want real objects, let make a list of messages, attach it to the scope
+instead of strings
+
+```js
+$scope.messages = [{
+  message: 'hi',
+  from: 'Friendly person'
+}, {
+  message: 'bye',
+  from: 'Mister X'
+}];
+```
+
+and then print them inside a template.
+
+```html
+<ul ng-controller="ObjectsController">
+  <li ng-repeat="m in messages">
+    message <strong>{{ $index + 1}}</strong>
+    - {{ m.from }} says "{{ m.message }}"
+  </li>
+</ul>
+```
+
+Notice how we used a special variable `$index` available inside the `ng-repeat` directive.
+It is a zero-based index of the current item in the list, just like inside an iterator callback
+when iterating over an Array in javascript
+
+```js
+['foo', 'bar'].forEach(function (s, index) {
+  console.log(s, 'at', index);
+});
+/* prints
+"foo" at 0
+"bar" at 1
+*/
+```
 
 [ng-repeat]: https://docs.angularjs.org/api/ng/directive/ngRepeat
 [directives]: https://docs.angularjs.org/api/ng/directive
