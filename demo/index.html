@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>Angular directives - demo</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
   <script>
     angular.module('DemoApp', [])
@@ -34,6 +35,14 @@
     <li ng-repeat="m in messages">
       message <strong>{{ $index + 1}}</strong>
       - {{ m.from }} says "{{ m.message }}"
+    </li>
+  </ul>
+
+  <h2>Changing class list using scope data</h2>
+  <ul ng-controller="StringsController">
+    <li ng-repeat="s in strings">
+      <span class="label label-default"
+        ng-class="{ 'label-success': s === 'foo', 'label-danger': s === 'bar' }">{{ s }}</span>
     </li>
   </ul>
 </body>

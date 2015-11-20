@@ -221,6 +221,57 @@ when iterating over an Array in javascript
 * Replace separate city DOM elements with single `ng-repeat` use.
 * Make sure all unit tests in [test/cities-spec.js](test/cities-spec.js) pass.
 
+## Changing appearance using ng-class directive
+
+As you implemented the solution to the previous section using `ng-repeat`
+you have probably noticed a small problem. In the starting page the first
+city (with rating 1) had the label with class `label label-success`.
+
+```html
+<span class="label label-success">1</span>
+```
+
+Every other city has class `label label-info`. When you wrote `ng-repeat`
+element, which one did you pick? How can we vary the class attributes based
+on the object data?
+
+Turns out, we can do this using another built-in directive `ng-class`.
+Read the documentation, since it has some quirks, but in general we use it in
+addition to regular "static" class attribute on an element.
+
+For example, if we wanted to set success label class if a string is "foo"
+and danger if a string is "bar" we can do the following
+
+```html
+<li ng-repeat="s in strings">
+  <span class="label label-default"
+    ng-class="{ 'label-success': s === 'foo', 'label-danger': s === 'bar' }">{{ s }}</span>
+</li>
+```
+
+As you can see, each class name will be toggled on if the corresponding expression
+is true. If the expression is false, the class will be removed from the element's class list.
+
+```
+{
+  classNameA: expression A,
+  classNameB: expression B
+}
+```
+
+The expressions can include any constants and scope properties. As you can see,
+the inline syntax quickly can become very cumbersome. I usually prefer an alternative
+syntax by returning a class object from a scope method.
+
+### Exercise - use ng-class to style the rating label
+
+The first city should have the green `label-success` class, while
+the rest should have `label-info` class.
+
+Unfortunately without making custom element directives, or setting
+up end to end testing, this feature is hard to unit test, thus you will have
+to check your own work.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015

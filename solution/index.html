@@ -40,7 +40,9 @@
       <div class="row">
         <div ng-repeat="city in cities" class="card card-block">
           <h4 class="card-title">
-            <span class="label label-info">{{ city.rating }}</span> {{ city.title }}
+            <span class="label"
+              ng-class="{ 'label-success': city.rating === 1, 'label-info': city.rating !== 1 }">
+              {{ city.rating }}</span> {{ city.title }}
           </h4>
           <p class="card-text">{{ city.text }}</p>
         </div>
