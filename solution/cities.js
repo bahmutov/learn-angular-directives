@@ -36,4 +36,11 @@ angular.module('CitiesApp', [])
         'and explore the city’s vibrant arts and culture calendar through Vivid Sydney come winter. ' +
         'Whatever the season, get spectacular views of the city from Sydney Tower’s glass viewing platform.'
     }];
+
+    $scope.getClasses = function (city) {
+      return {
+        'label-success': city.rating === 1,
+        'label-info': city.rating !== 1
+      };
+    };
   });

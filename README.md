@@ -219,7 +219,9 @@ when iterating over an Array in javascript
 * Instead of static content listing the cities in the `index.html` page,
   move all content to the list of objects on the scope inside `CitiesController`.
 * Replace separate city DOM elements with single `ng-repeat` use.
-* Make sure all unit tests in [test/cities-spec.js](test/cities-spec.js) pass.
+* Make sure all unit tests in [test/cities-spec.js](test/cities-spec.js) pass
+  inside the block `CitiesApp controller - ng-repeat` suite.
+* Quick tip: you can just test a particular suite by setting its property `only` to true.
 
 ## Changing appearance using ng-class directive
 
@@ -294,12 +296,13 @@ Same effect, but much cleaner template, and the scope methods are easily testabl
 
 ### Exercise - use ng-class to style the rating label
 
-The first city should have the green `label-success` class, while
-the rest should have `label-info` class.
+* The first city should have the green `label-success` class, while
+  the rest should have `label-info` class.
+* Compute the classes by attaching method to the `CitiesController` scope
+* The method should take a city object with `rating` property and return
+  the appropriate class when rating is 1 or not.
+* There are unit tests in the `CitiesApp controller - ng-class` pass.
 
-Unfortunately without making custom element directives, or setting
-up end to end testing, this feature is hard to unit test, thus you will have
-to check your own work.
 
 ### Small print
 

@@ -2,9 +2,10 @@
 // and lazy assertion library
 // https://github.com/bahmutov/lazy-ass
 ngDescribe({
-  name: 'CitiesApp controller',
+  name: 'CitiesApp controller - ng-repeat',
   module: 'CitiesApp',
   controller: 'CitiesController',
+  only: false,
   tests: function (deps) {
     it('has list of cities on the scope', function () {
       var scope = deps.CitiesController;
@@ -26,6 +27,40 @@ ngDescribe({
         la(city.title, 'city does not have title', city);
         la(city.text, 'city does not have text', city);
       });
+    });
+  }
+});
+
+ngDescribe({
+  name: 'CitiesApp controller - ng-class',
+  module: 'CitiesApp',
+  controller: 'CitiesController',
+  only: false,
+  tests: function (deps) {
+    it('has getClasses()', function () {
+      var scope = deps.CitiesController;
+      la(typeof scope.getClasses === 'function',
+        'mising getClasses() method on scope');
+    });
+
+    it('expects 1 argument to getClasses()', function () {
+      var scope = deps.CitiesController;
+      la(scope.getClasses.length === 1,
+        'getClasses() should only expect a city object');
+    });
+
+    it('returns correct class object for city rated #1', function () {
+      var scope = deps.CitiesController;
+      var classes = scope.getClasses({ rating: 1 });
+      la(classes['label-success'], 'expected label success');
+      la(!classes['label-info'], 'not expected label info');
+    });
+
+    it('returns correct class object for city NOT rated #1', function () {
+      var scope = deps.CitiesController;
+      var classes = scope.getClasses({ rating: 10 });
+      la(!classes['label-success'], 'not expected label success');
+      la(classes['label-info'], 'expected label info');
     });
   }
 });
