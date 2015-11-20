@@ -24,7 +24,5 @@
   },
   "homepage": "https://github.com/bahmutov/learn-angular-directives",
   "private": true,
-  "dependencies": {
-    "http-server": "0.8.5"
-  }
+  "dependencies": {}
 }

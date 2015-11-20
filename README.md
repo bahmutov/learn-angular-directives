@@ -13,11 +13,19 @@ After completing this study you will be able to:
 
 ### Installation
 
-While all these examples require just a static page, and could have been delivered
-using [jsbin](http://jsbin.com/) or a similar service, it is much faster to work
-with an Angular application when you can easily inspect the DOM and the application
-in the browser's DevTools. Thus I advise to clone this repo and open the included
-test page as a local file.
+While all these examples require just a static page and can be inspected, modified
+and shown by open the included `index.html` file.
+
+    git clone git@github.com:bahmutov/learn-angular-directives.git
+    cd learn-angular-directives
+    open index.html
+
+I assume a modern browser with good Developer Tools, like Chrome.
+
+We are going to start with a pretty simple page, but the important thing to notice
+is the mock content and styles. The Angular framework shines when it is applied to
+an existing static page, created by a designer. With a few built-in directives we
+can bring a page to life!
 
 ### Small print
 
