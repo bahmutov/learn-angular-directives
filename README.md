@@ -18,6 +18,7 @@ and shown by open the included `index.html` file.
 
     git clone git@github.com:bahmutov/learn-angular-directives.git
     cd learn-angular-directives
+    npm install
     open index.html
 
 I assume a modern browser with good Developer Tools, like Chrome. The `index.html`
@@ -79,7 +80,31 @@ You can read the introduction in the blog post
 this helper library on top of [angular-mocks](https://docs.angularjs.org/api/ngMock)
 to avoid writing a lot of boilerplate code.
 
-The testing specs are executed using Karma tool against Chrome browser.
+The testing specs are executed using Karma tool against Chrome browser
+
+    npm test
+
+For example, to verify the presence of a list of cities on the scope in `CitiesController`,
+there is unit test
+
+```js
+// test/cities-spec.js
+ngDescribe({
+  name: 'CitiesApp controller',
+  module: 'CitiesApp',
+  controller: 'CitiesController',
+  tests: function (deps) {
+    it('has list of cities on the scope', function () {
+      var scope = deps.CitiesController;
+      la(Array.isArray(scope.cities),
+        'mising cities', scope.cities);
+    });
+  }
+});
+```
+
+At first the test fails, because the scope is empty. It will be up to you to solve little
+problems as you read this file to make all unit tests pass.
 
 ## Showing list of items using `ng-repeat`
 

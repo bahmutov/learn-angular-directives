@@ -4,7 +4,7 @@
   "description": "Self-directed study of Angular 1 built-in directives, including a homework assignment",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "karma start test/karma.conf.js",
     "start": "http-server -p 3400"
   },
   "repository": {
@@ -24,5 +24,13 @@
   },
   "homepage": "https://github.com/bahmutov/learn-angular-directives",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "karma": "0.13.15",
+    "karma-chrome-launcher": "0.2.1",
+    "karma-mocha": "0.2.1",
+    "lazy-ass": "1.0.0",
+    "mocha": "2.3.4",
+    "ng-describe": "1.4.1"
+  }
 }
