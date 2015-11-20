@@ -68,6 +68,19 @@ actually do what I claim they do, and for you to play around with them.
 
 You should see list of items, a couple of buttons, etc.
 
+### Assignment and testing
+
+Because we are transforming the "Cities" application from static mock up to full application,
+each section will have a little assignment where you would transform the `index.html` and
+`cities.js` a little. The BDD specs are located inside `test` folder and use Mocha
+and AngularJS testing library called [ng-describe](https://github.com/kensho/ng-describe).
+You can read the introduction in the blog post
+"[1, 2, 3, tested](http://glebbahmutov.com/blog/1-2-3-tested/)". I am using
+this helper library on top of [angular-mocks](https://docs.angularjs.org/api/ngMock)
+to avoid writing a lot of boilerplate code.
+
+The testing specs are executed using Karma tool against Chrome browser.
+
 ## Showing list of items using `ng-repeat`
 
 We start making our static page dynamic by removing all the duplicate markup and
