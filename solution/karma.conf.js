@@ -2,15 +2,15 @@ module.exports = function(config) {
   config.set({
     frameworks: ['mocha'],
     files: [
-      'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.js',
-      'https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-mocks.js',
+      '../node_modules/angular/angular.js',
+      '../node_modules/angular-mocks/angular-mocks.js',
       '../node_modules/lazy-ass/index.js',
       '../node_modules/ng-describe/dist/ng-describe.js',
       'cities.js',
       '../test/cities-spec.js'
     ],
     port: 9876,
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
     singleRun: true,
     reporters: ['spec']
   });
