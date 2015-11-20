@@ -11,6 +11,12 @@
     angular.module('DemoApp', [])
       .controller('StringsController', function ($scope) {
         $scope.strings = ['foo', 'bar', 'baz', 'longer string'];
+        $scope.getClasses = function (s) {
+          return {
+            'label-success': s === 'foo',
+            'label-danger': s === 'bar'
+          };
+        };
       })
       .controller('ObjectsController', function ($scope) {
         $scope.messages = [{
@@ -38,11 +44,19 @@
     </li>
   </ul>
 
-  <h2>Changing class list using scope data</h2>
+  <h2>Changing class list inline using scope data</h2>
   <ul ng-controller="StringsController">
     <li ng-repeat="s in strings">
       <span class="label label-default"
         ng-class="{ 'label-success': s === 'foo', 'label-danger': s === 'bar' }">{{ s }}</span>
+    </li>
+  </ul>
+
+  <h2>Changing class list using scope method</h2>
+  <ul ng-controller="StringsController">
+    <li ng-repeat="s in strings">
+      <span class="label label-default"
+        ng-class="getClasses(s)">{{ s }}</span>
     </li>
   </ul>
 </body>

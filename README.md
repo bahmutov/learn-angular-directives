@@ -252,6 +252,10 @@ and danger if a string is "bar" we can do the following
 As you can see, each class name will be toggled on if the corresponding expression
 is true. If the expression is false, the class will be removed from the element's class list.
 
+### Alternative
+
+Inline `ng-class` expressions really encode an object
+
 ```
 {
   classNameA: expression A,
@@ -262,6 +266,31 @@ is true. If the expression is false, the class will be removed from the element'
 The expressions can include any constants and scope properties. As you can see,
 the inline syntax quickly can become very cumbersome. I usually prefer an alternative
 syntax by returning a class object from a scope method.
+
+First, attach a method to the scope to return the same class name object
+
+```js
+controller('StringsController', function ($scope) {
+  $scope.strings = ['foo', 'bar', 'baz', 'longer string'];
+  $scope.getClasses = function (s) {
+    return {
+      'label-success': s === 'foo',
+      'label-danger': s === 'bar'
+    };
+  };
+})
+```
+
+Then call the method in the `ng-class` value, don't forget to pass the item itself.
+
+```html
+<li ng-repeat="s in strings">
+  <span class="label label-default"
+    ng-class="getClasses(s)">{{ s }}</span>
+</li>
+```
+
+Same effect, but much cleaner template, and the scope methods are easily testable.
 
 ### Exercise - use ng-class to style the rating label
 
