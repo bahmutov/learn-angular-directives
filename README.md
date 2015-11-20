@@ -20,7 +20,9 @@ and shown by open the included `index.html` file.
     cd learn-angular-directives
     open index.html
 
-I assume a modern browser with good Developer Tools, like Chrome.
+I assume a modern browser with good Developer Tools, like Chrome. The `index.html`
+page already includes Angular library from a CDN and Bootstrap4 style. It also
+boostraps an application around `<div id="cities">` element.
 
 We are going to start with a pretty simple page, but the important thing to notice
 is the mock content and styles. The Angular framework shines when it is applied to
@@ -68,7 +70,50 @@ sentence to find it. Notice that there are [other directives][directives] descri
 in the docs, if you click the navigation links.
 
 The documentation is pretty long, but all we care is iterating over a plain list of
-objects.
+objects. Let us say we have a list of strings and want to put them into `<li>`
+elements. The application's controller code is simple
+
+```js
+function MyController($scope) {
+  $scope.strings = ['foo', 'bar', 'baz'];
+}
+```
+
+and the markup uses `ng-repeat` directive on the element we want to *repeat*
+for each item in the list. In this case it would be `<li>` element
+
+```html
+<ul ng-controller="MyController">
+  <li ng-repeat="s in strings">{{ s }}</li>
+</ul>
+```
+
+That is it! When the application starts, the Angular framework will create 3 `<li>` elements,
+each with its own item (referred by variable `s` in this case, but any name would do).
+The we use a template expression to simply show the string inside the `<li>` element.
+
+What happens if somehow we add a new element to the array `$scope.strings`? Well, Angular
+will run its digest cycle and will create one more element `<li>`, will put the new string
+into the template there and will add it to the document object model (DOM). Thus it will
+become something like this.
+
+```html
+<ul ng-controller="MyController">
+  <!-- ng-repeat "s in strings" -->
+  <li>foo</li>
+  <li>bar</li>
+  <li>baz</li>
+  <li>some new string</li>
+</ul>
+```
+
+Pretty cool.
+
+### Objects in the list
+
+The list can have anything inside, including objects. We just need to use dot notation
+to access nested properties. For example, in the list anove, let us also show the length
+of each string.
 
 [ng-repeat]: https://docs.angularjs.org/api/ng/directive/ngRepeat
 [directives]: https://docs.angularjs.org/api/ng/directive

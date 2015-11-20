@@ -12,8 +12,10 @@
 
   <title>Angular directives</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="cities.js"></script>
 </head>
-<body>
+<body ng-app="CitiesApp">
   <div class="container">
     <h1>Angular directives
       <small class="text-muted">Self-directed study of Angular 1 built-in directives</small>
@@ -25,7 +27,7 @@
       </div>
     </div>
 
-    <div id="cities">
+    <div id="cities" ng-controller="CitiesController">
       <div class="row">
         <div class="col-xl-12">
           <h1 class="display-1">Best cities in the world</h1>
