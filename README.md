@@ -27,6 +27,52 @@ is the mock content and styles. The Angular framework shines when it is applied 
 an existing static page, created by a designer. With a few built-in directives we
 can bring a page to life!
 
+The page will look something like this
+
+![initial page](images/initial.png)
+
+If you inspect the page [index.html](index.html) you will find a LOT of static markup,
+something like this
+
+```html
+<div class="row">
+  <div class="card-group">
+    <div class="card card-block">
+      <h4 class="card-title"><span class="label label-success">1</span> Florence, Italy</h4>
+      <p class="card-text">Though Rome is ...</p>
+    </div>
+    <div class="card card-block">
+      <h4 class="card-title"><span class="label label-info">2</span> Budapest, Hungary</h4>
+      <p class="card-text">With some of the ...</p>
+    </div>
+  </div>
+</div>
+```
+
+The page shows a list of cities as rated by CNN's Reader's Choice [source][cities-ref].
+You might disagree with the ratings, but let us just concentrate on making the page better
+using Angular.
+
+[cities-ref]: http://www.cntraveler.com/galleries/2014-10-20/top-25-cities-in-the-world-readers-choice-awards-2014/30
+
+## Showing list of items using `ng-repeat`
+
+We start making our static page dynamic by removing all the duplicate markup and
+replacing it with a single template that will iterate over a list with actual data.
+All data (cities, rankings, links) will be in a single Array attached to the `$scope`
+object, while the markup will just render it using `ng-repeat` directive.
+
+First, read the information about the `ng-repeat` at the official AngularJS website.
+[Here][ng-repeat] is a direct link, but I usually just Google the `ng-repeat directive`
+sentence to find it. Notice that there are [other directives][directives] described
+in the docs, if you click the navigation links.
+
+The documentation is pretty long, but all we care is iterating over a plain list of
+objects.
+
+[ng-repeat]: https://docs.angularjs.org/api/ng/directive/ngRepeat
+[directives]: https://docs.angularjs.org/api/ng/directive
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015
