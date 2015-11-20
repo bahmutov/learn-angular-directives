@@ -1,0 +1,30 @@
+{
+  "name": "learn-angular-directives",
+  "version": "1.0.0",
+  "description": "Self-directed study of Angular 1 built-in directives, including a homework assignment",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -p 3400"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bahmutov/learn-angular-directives.git"
+  },
+  "keywords": [
+    "angular",
+    "ng",
+    "learning",
+    "tutorial"
+  ],
+  "author": "Gleb Bahmutov <gleb.bahmutov@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bahmutov/learn-angular-directives/issues"
+  },
+  "homepage": "https://github.com/bahmutov/learn-angular-directives",
+  "private": true,
+  "dependencies": {
+    "http-server": "0.8.5"
+  }
+}

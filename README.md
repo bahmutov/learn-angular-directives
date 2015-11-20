@@ -2,6 +2,23 @@
 
 > Self-directed study of Angular 1 built-in directives, including a homework assignment
 
+## Angular 1 directives
+
+After completing this study you will be able to:
+
+* Understand the value of `ng-repeat`
+* Use `ng-if`, `ng-switch` and `ng-class`
+* Find the various event directives available such as `ng-focus`
+* Use event directives to call methods in a controller
+
+### Installation
+
+While all these examples require just a static page, and could have been delivered
+using [jsbin](http://jsbin.com/) or a similar service, it is much faster to work
+with an Angular application when you can easily inspect the DOM and the application
+in the browser's DevTools. Thus I advise to clone this repo and open the included
+test page as a local file.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015
