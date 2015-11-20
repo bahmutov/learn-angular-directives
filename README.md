@@ -209,6 +209,12 @@ when iterating over an Array in javascript
 [ng-repeat]: https://docs.angularjs.org/api/ng/directive/ngRepeat
 [directives]: https://docs.angularjs.org/api/ng/directive
 
+### Exercise - use ng-repeat to show cities
+
+* Instead of static content listing the cities in the `index.html` page,
+  move all content to the list of objects on the scope inside `CitiesController`.
+* Replace separate city DOM elements with single `ng-repeat` use.
+
 ### Small print
 
 Author: Gleb Bahmutov &copy; 2015
