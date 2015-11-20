@@ -11,6 +11,7 @@ module.exports = function(config) {
     ],
     port: 9876,
     browsers: ['Chrome'],
-    singleRun: true
+    singleRun: true,
+    reporters: ['spec']
   });
 };

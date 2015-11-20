@@ -214,7 +214,7 @@ when iterating over an Array in javascript
 * Instead of static content listing the cities in the `index.html` page,
   move all content to the list of objects on the scope inside `CitiesController`.
 * Replace separate city DOM elements with single `ng-repeat` use.
-* Make sure all unit tests insice the [test/cities-spec.js](test/cities-spec.js) pass.
+* Make sure all unit tests in [test/cities-spec.js](test/cities-spec.js) pass.
 
 ### Small print
 
