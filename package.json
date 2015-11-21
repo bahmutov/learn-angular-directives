@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "karma start test/karma.conf.js",
-    "solution": "karma start solution/karma.conf.js"
+    "solution": "karma start solution/karma.conf.js",
+    "deploy": "gh-pages -d solution"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   "devDependencies": {
     "angular": "1.4.5",
     "angular-mocks": "1.4.5",
+    "gh-pages": "0.5.0",
     "karma": "0.13.15",
     "karma-chrome-launcher": "0.2.1",
     "karma-mocha": "0.2.1",

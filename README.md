@@ -7,6 +7,8 @@
 [solution-ci-image]: https://travis-ci.org/bahmutov/learn-angular-directives.png?branch=master
 [solution-ci-url]: https://travis-ci.org/bahmutov/learn-angular-directives
 
+Final application [demo](http://glebbahmutov.com/learn-angular-directives/)
+
 ## Angular 1 directives
 
 After completing this study you will be able to:
@@ -462,10 +464,12 @@ more powerful, we still employed only a couple of principles
 2. The built-in directives help us change the page appearance and content based on
   the data in the scope object
 
-The page update happens automatically. We never had to program callbacks, reach into
-elements and set new values. Each dynamic element used built-in directives to style
-itself and show content based on the scope. This is the Angular way.
+The page update happens automatically. We never have to program any callbacks,
+or reach into other elements and set new values.
+Each dynamic element uses the built-in directives to style itself and show the new content
+based on the scope data. This is the Angular way.
 
+* [Final application solution](http://glebbahmutov.com/learn-angular-directives/)
 * [Just Enough Angular for Designers](http://onehungrymind.com/just-enough-angular-for-designers/)
 
 ### Small print
