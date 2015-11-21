@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <style>
+    body {
+      padding-top: 2rem;
+    }
+  </style>
+
+  <title>Angular directives</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+  <script src="cities.js"></script>
+</head>
+<body ng-app="CitiesApp">
+  <div class="container">
+    <h1>Angular directives
+      <small class="text-muted">Self-directed study of Angular 1 built-in directives</small>
+    </h1>
+
+    <div class="row">
+      <div class="col-xl-12">
+        <p class="lead">Sections of this page below are all controlled by separate AngularJS applications</p>
+      </div>
+    </div>
+
+    <div id="cities" ng-controller="CitiesController">
+      <div class="row">
+        <div class="col-xl-12">
+          <h1 class="display-1">Best cities in the world</h1>
+          <p>
+            <small>According to the <a href="http://www.cntraveler.com/galleries/2014-10-20/top-25-cities-in-the-world-readers-choice-awards-2014/30">Reader's Choice</a></small>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-6 col-xl-offset-3">
+          <div class="btn-group" role="group" aria-label="Continent filter">
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.europe }"
+              ng-click="continents.europe = !continents.europe">Europe</button>
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.americas }"
+              ng-click="continents.americas = !continents.americas">Americas</button>
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.asia }"
+              ng-click="continents.asia = !continents.asia">Asia</button>
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.africa }"
+              ng-click="continents.africa = !continents.africa">Africa</button>
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.australia }"
+              ng-click="continents.australia = !continents.australia">Australia</button>
+          </div>
+        </div>
+
+        <div class="col-xl-3">
+          <button type="button" class="btn btn-info"
+            ng-show="hidingAContinent()"
+            ng-click="resetContinents()">Reset filter</button>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
+        <div ng-repeat="city in cities | filter:onVisibleContinent" class="card card-block">
+          <h4 class="card-title">
+            <span class="label"
+              ng-class="getClasses(city)">
+              {{ city.rating }}</span> {{ city.title }}
+              <strong ng-if="city.rating === 1">A winner!</strong>
+          </h4>
+          <p class="card-text">{{ city.text }}</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>
