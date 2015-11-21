@@ -368,11 +368,17 @@ We want to add dynamic behavior to this filtering widget.
 ### Exercise - implement the continent filtering widget
 
 * Add an object to the scope with properties that will determine if cities on that continent
-  should be shown. This addition should be enough to have unit tests
-  'CitiesApp controller - continents' pass.
+  should be shown.
 * Add `ng-show` directive to the "Reset filter" button. It should be shown only
-  if any of the properties inside the `continents` object is false. Test it manually
-  by setting the `continents.europe` to false.
+  if any of the properties inside the `continents` object is false.
+  Make the expression a call to a scope function `hidingAContinent()`.
+  Test it manually by setting the `continents.europe` to false.
+* Make sure your solution has enough data on the scope to pass the unit tests
+  inside the 'CitiesApp controller - continents' suite.
+
+## Reacting to the user events, like mouse clicks
+
+
 
 ## Extra reading
 

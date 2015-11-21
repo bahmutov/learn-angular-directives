@@ -51,4 +51,11 @@ angular.module('CitiesApp', [])
       africa: true,
       australia: true
     };
+
+    $scope.hidingAContinent = function () {
+      var continents = $scope.continents;
+      return Object.keys(continents).some(function (name) {
+        return !continents[name];
+      });
+    };
   });

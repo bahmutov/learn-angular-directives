@@ -92,5 +92,13 @@ ngDescribe({
       la(scope.continents.australia ===  true,
         'show australia by default', scope.continents);
     });
+
+    it('has hidingAContinent()', function () {
+      var scope = deps.CitiesController;
+      la(typeof scope.hidingAContinent === 'function',
+        'missing hidingAContinent method');
+      la(scope.hidingAContinent() === false,
+        'not hiding any continent by default');
+    });
   }
 });
