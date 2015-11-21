@@ -17,6 +17,9 @@
             'label-danger': s === 'bar'
           };
         };
+        $scope.startsWithB = function (s) {
+          return /^b/.test(s);
+        };
       })
       .controller('ObjectsController', function ($scope) {
         $scope.messages = [{
@@ -64,6 +67,11 @@
   <ul ng-controller="StringsController">
     <li ng-repeat="s in strings">{{ s }} has {{ s.length }} characters
       <strong ng-if="s.length === 3">A triple!</strong></li>
+  </ul>
+
+  <h2>Showing strings starting with "b"</h2>
+  <ul ng-controller="StringsController">
+    <li ng-repeat="s in strings | filter:startsWithB">{{ s }}</li>
   </ul>
 </body>
 </html>

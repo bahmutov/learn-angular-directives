@@ -67,7 +67,7 @@
       <br>
 
       <div class="row">
-        <div ng-repeat="city in cities | filter:visibleContinent" class="card card-block">
+        <div ng-repeat="city in cities | filter:onVisibleContinent" class="card card-block">
           <h4 class="card-title">
             <span class="label"
               ng-class="getClasses(city)">

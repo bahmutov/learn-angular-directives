@@ -416,8 +416,42 @@ create a function on the scope and call it when the `ng-click` runs.
 
 ## Finishing the filtering widget
 
+Finally, let us actually add the filtering feature to the `ng-repeat` directive.
+Right now we can click the continent buttons, but the list of cities is still displayed
+in its entirety. How can we hide the cities from the hidden continent?
 
-## Extra reading
+The `ng-repeat` directive can be piped through `filter` and `groupBy` functions.
+We just need to implement the `filter` in this case. Let us look at the strings
+example. Suppose we want to filter strings and only show strings that start with the
+letter "b". We will create the filtering function on the scope and then pass
+its name as the filter.
+
+```js
+$scope.startsWithB = function (s) {
+  return /^b/.test(s);
+};
+```
+
+Place the name of the method after the `ng-repeat`
+
+```html
+<ul ng-controller="StringsController">
+  <li ng-repeat="s in strings | filter:startsWithB">{{ s }}</li>
+</ul>
+```
+
+Only the strings starting with the letter "b" will be in the list: "bar", "baz".
+
+### Exercise - filter the cities by the continent
+
+* Add the continent property to each city object in the list.
+* Implement the function 'onVisibleContinent' that takes a city object
+  and returns if its continent is visible or not (using the `scope.continents` object).
+  This should be enough to make the spec 'CitiesApp controller - ng-repeat filter' pass.
+* Finally add the filter to the `ng-repeat` directive in the cities list.
+  Click the continent buttons and see how the European cities are hidden or shown again.
+
+## Conclusions and extra reading
 
 * [Just Enough Angular for Designers](http://onehungrymind.com/just-enough-angular-for-designers/)
 

@@ -73,7 +73,7 @@ angular.module('CitiesApp', [])
       };
     };
 
-    $scope.visibleContinent = function (city) {
+    $scope.onVisibleContinent = function (city) {
       return $scope.continents[city.continent.toLowerCase()];
     };
   });

@@ -134,3 +134,46 @@ ngDescribe({
     });
   }
 });
+
+ngDescribe({
+  name: 'CitiesApp controller - ng-repeat filter',
+  module: 'CitiesApp',
+  controller: 'CitiesController',
+  only: false,
+  tests: function (deps) {
+    it('has continent property for each city', function () {
+      var cities = deps.CitiesController.cities;
+      la(Array.isArray(cities), 'expected cities list');
+      cities.forEach(function (city) {
+        la(typeof city.continent === 'string',
+          'cannot find continent property in the city', city);
+      });
+    });
+
+    it('has onVisibleContinent()', function () {
+      var scope = deps.CitiesController;
+      la(typeof scope.onVisibleContinent === 'function',
+        'missing onVisibleContinent method');
+    });
+
+    it('expects single argument - just the city object', function () {
+      var scope = deps.CitiesController;
+      la(scope.onVisibleContinent.length === 1);
+    });
+
+    it('returns the current city visible flag based on the continent', function () {
+      var scope = deps.CitiesController;
+      var continents = scope.continents;
+      la(continents.europe,
+        'cannot find europe in the list of continents', continents);
+
+      var fakeCity = { continent: 'europe' };
+      la(scope.onVisibleContinent(fakeCity),
+        'city in europe should be visible initially');
+
+      continents.europe = false;
+      la(!scope.onVisibleContinent(fakeCity),
+        'europe is hidden, the city should be filtered out');
+    });
+  }
+});
