@@ -453,6 +453,19 @@ Only the strings starting with the letter "b" will be in the list: "bar", "baz".
 
 ## Conclusions and extra reading
 
+We have started with a static design - the idea of an application. As a first step,
+we have moved the data from hardcoded HTML markup to the JavaScript objects.
+Then we displayed the list using a provided directive `ng-repeat`. As we made the application
+more powerful, we still employed only a couple of principles
+
+1. All data and logic is attached to the scope object
+2. The built-in directives help us change the page appearance and content based on
+  the data in the scope object
+
+The page update happens automatically. We never had to program callbacks, reach into
+elements and set new values. Each dynamic element used built-in directives to style
+itself and show content based on the scope. This is the Angular way.
+
 * [Just Enough Angular for Designers](http://onehungrymind.com/just-enough-angular-for-designers/)
 
 ### Small print
