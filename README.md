@@ -303,6 +303,80 @@ Same effect, but much cleaner template, and the scope methods are easily testabl
   the appropriate class when rating is 1 or not.
 * There are unit tests in the `CitiesApp controller - ng-class` pass.
 
+## Showing and hiding elements using ng-if, ng-show and ng-hide
+
+Let us display a big large message for a winning city. The data controlling the
+display is clear - it is the same `city.rating === 1` condition as in the previous
+assignment. But now we need to completely hide the element if the rating is not 1
+and show it if the rating is 1. How do we do this?
+
+Let us say we want to display an element depending on a data on the scope.
+It is very simple - just use `ng-if="expression"` code. For example to show
+messages for strings with length 3 we could do something like this
+
+```html
+<ul ng-controller="StringsController">
+  <li ng-repeat="s in strings">{{ s }} has {{ s.length }} characters
+    <strong ng-if="s.length === 3">A triple!</strong></li>
+</ul>
+```
+
+There is another directive with similar function - `ng-show`. Try using
+it instead of `ng-if` in the `demo/index.html` example. Notice that when using
+`ng-if` there is NO element in the DOM. It is completely removed, including any data
+bindings or event listeners. But if you use `ng-show` the element is present, and
+updated, it is just set to be invisible. You can use `ng-hide` to do the opposite -
+display the element by default, and only hide if the expression is true.
+
+In general, if the data is only computed once, use `ng-if`. If the data is dynamic
+and can change, use `ng-show`. In our example, the winning city is determine from
+the data only once; it will never change, thus using `ng-if` is a preferred method.
+
+### Exercise - use ng-if to display "A winner" text
+
+* Add an element to the city element that will show "A winner" text if the city
+  has rating 1.
+
+![winner](images/winner.png)
+
+To show how we can use `ng-show`, let us add a couple of buttons to filter cities
+based on the continent. At first we are going to have plain static markdown with
+all continents selected.
+
+```html
+<div class="col-xl-6 col-xl-offset-3">
+  <div class="btn-group" role="group" aria-label="Continent filter">
+    <button type="button"
+      class="btn btn-secondary active">Europe</button>
+    <button type="button"
+      class="btn btn-secondary active">Americas</button>
+    <button type="button"
+      class="btn btn-secondary active">Asia</button>
+    <button type="button"
+      class="btn btn-secondary active">Africa</button>
+    <button type="button"
+      class="btn btn-secondary active">Australia</button>
+  </div>
+</div>
+<div class="col-xl-3">
+  <button type="button" class="btn btn-info">Reset filter</button>
+</div>
+```
+
+We want to add dynamic behavior to this filtering widget.
+
+### Exercise - implement the continent filtering widget
+
+* Add an object to the scope with properties that will determine if cities on that continent
+  should be shown. This addition should be enough to have unit tests
+  'CitiesApp controller - continents' pass.
+* Add `ng-show` directive to the "Reset filter" button. It should be shown only
+  if any of the properties inside the `continents` object is false. Test it manually
+  by setting the `continents.europe` to false.
+
+## Extra reading
+
+* [Just Enough Angular for Designers](http://onehungrymind.com/just-enough-angular-for-designers/)
 
 ### Small print
 

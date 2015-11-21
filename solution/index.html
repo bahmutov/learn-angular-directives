@@ -38,11 +38,34 @@
       </div>
 
       <div class="row">
+        <div class="col-xl-6 col-xl-offset-3">
+          <div class="btn-group" role="group" aria-label="Continent filter">
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.europe }">Europe</button>
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.americas }">Americas</button>
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.asia }">Asia</button>
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.africa }">Africa</button>
+            <button type="button" class="btn btn-secondary"
+              ng-class="{ active: continents.australia }">Australia</button>
+          </div>
+        </div>
+
+        <div class="col-xl-3">
+          <button type="button" class="btn btn-info">Reset filter</button>
+        </div>
+      </div>
+      <br>
+
+      <div class="row">
         <div ng-repeat="city in cities" class="card card-block">
           <h4 class="card-title">
             <span class="label"
               ng-class="getClasses(city)">
               {{ city.rating }}</span> {{ city.title }}
+              <strong ng-if="city.rating === 1">A winner!</strong>
           </h4>
           <p class="card-text">{{ city.text }}</p>
         </div>

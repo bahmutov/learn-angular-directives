@@ -11,7 +11,7 @@ ngDescribe({
       var scope = deps.CitiesController;
       la(scope, 'missing scope');
       la(Array.isArray(scope.cities),
-        'mising cities', scope.cities);
+        'missing cities', scope.cities);
     });
 
     it('has 4 cities in the list', function () {
@@ -40,7 +40,7 @@ ngDescribe({
     it('has getClasses()', function () {
       var scope = deps.CitiesController;
       la(typeof scope.getClasses === 'function',
-        'mising getClasses() method on scope');
+        'missing getClasses() method on scope');
     });
 
     it('expects 1 argument to getClasses()', function () {
@@ -61,6 +61,36 @@ ngDescribe({
       var classes = scope.getClasses({ rating: 10 });
       la(!classes['label-success'], 'not expected label success');
       la(classes['label-info'], 'expected label info');
+    });
+  }
+});
+
+ngDescribe({
+  name: 'CitiesApp controller - continents',
+  module: 'CitiesApp',
+  controller: 'CitiesController',
+  only: false,
+  tests: function (deps) {
+    it('has continents', function () {
+      var scope = deps.CitiesController;
+      la(typeof scope.continents === 'object',
+        'missing continents');
+    });
+
+    it('has europe continent', function () {
+      var scope = deps.CitiesController;
+      la(typeof scope.continents.europe === 'boolean',
+        'missing europe', scope.continents);
+      la(scope.continents.europe ===  true,
+        'show europe by default', scope.continents);
+    });
+
+    it('has australia continent', function () {
+      var scope = deps.CitiesController;
+      la(typeof scope.continents.australia === 'boolean',
+        'missing australia', scope.continents);
+      la(scope.continents.australia ===  true,
+        'show australia by default', scope.continents);
     });
   }
 });

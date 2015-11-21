@@ -43,4 +43,12 @@ angular.module('CitiesApp', [])
         'label-info': city.rating !== 1
       };
     };
+
+    $scope.continents = {
+      europe: true,
+      americas: true,
+      asia: true,
+      africa: true,
+      australia: true
+    };
   });

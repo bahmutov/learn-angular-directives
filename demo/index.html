@@ -59,5 +59,11 @@
         ng-class="getClasses(s)">{{ s }}</span>
     </li>
   </ul>
+
+  <h2>Showing element depending on expression</h2>
+  <ul ng-controller="StringsController">
+    <li ng-repeat="s in strings">{{ s }} has {{ s.length }} characters
+      <strong ng-if="s.length === 3">A triple!</strong></li>
+  </ul>
 </body>
 </html>
