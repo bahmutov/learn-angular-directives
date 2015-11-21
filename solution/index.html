@@ -56,13 +56,14 @@
 
         <div class="col-xl-3">
           <button type="button" class="btn btn-info"
-            ng-show="hidingAContinent()">Reset filter</button>
+            ng-show="hidingAContinent()"
+            ng-click="resetContinents()">Reset filter</button>
         </div>
       </div>
       <br>
 
       <div class="row">
-        <div ng-repeat="city in cities" class="card card-block">
+        <div ng-repeat="city in cities | filter:visibleContinent" class="card card-block">
           <h4 class="card-title">
             <span class="label"
               ng-class="getClasses(city)">

@@ -92,13 +92,45 @@ ngDescribe({
       la(scope.continents.australia ===  true,
         'show australia by default', scope.continents);
     });
+  }
+});
 
+ngDescribe({
+  name: 'CitiesApp controller - filtering',
+  module: 'CitiesApp',
+  controller: 'CitiesController',
+  only: false,
+  tests: function (deps) {
     it('has hidingAContinent()', function () {
       var scope = deps.CitiesController;
       la(typeof scope.hidingAContinent === 'function',
         'missing hidingAContinent method');
+    });
+
+    it('does not hide any continent by default', function () {
+      var scope = deps.CitiesController;
       la(scope.hidingAContinent() === false,
         'not hiding any continent by default');
+    });
+
+    it('returns true is europe is hidden', function () {
+      var scope = deps.CitiesController;
+      scope.continents.europe = false;
+      la(scope.hidingAContinent());
+    });
+
+    it('has resetContinents()', function () {
+      var scope = deps.CitiesController;
+      la(typeof scope.resetContinents === 'function',
+        'missing hidingAContinent method');
+    });
+
+    it('sets all continents to visible when clicked', function () {
+      var scope = deps.CitiesController;
+      scope.continents.europe = false;
+      la(scope.hidingAContinent());
+      scope.resetContinents();
+      la(!scope.hidingAContinent(), 'europe is visible again');
     });
   }
 });

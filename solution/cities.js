@@ -3,6 +3,7 @@ angular.module('CitiesApp', [])
   .controller('CitiesController', function ($scope) {
     $scope.cities = [{
       rating: 1,
+      continent: 'Europe',
       title: 'Florence, Italy',
       text: 'Though Rome is Italy’s much beloved capital and Milan has serious cosmopolitan clout,' +
         'Florence remains unrivaled in history, art, and architecture (its beauty and cuisine don’t hurt, ' +
@@ -14,6 +15,7 @@ angular.module('CitiesApp', [])
     }, {
       rating: 2,
       title: 'Budapest, Hungary',
+      continent: 'Europe',
       text: 'With some of the best Art Nouveau architecture in Europe, scenic Budapest has ' +
         'no bad angles. Explore the Hungarian capital’s spa culture with thermal baths built ' +
         'in the 16th and 17th century, and make sure to pay a visit to the ornate New York ' +
@@ -23,6 +25,7 @@ angular.module('CitiesApp', [])
     }, {
       rating: 3,
       title: 'Vienna, Austria',
+      continent: 'Europe',
       text: 'Artistic, exquisite, and largely shaped by its musical and intellectual foundations, ' +
         'Austria’s capital and largest city is packed with culture. Make time to get a figurative ' +
         'taste of royalty at Schönbrunn, the Habsburgs’ former summer residence, and get an actual ' +
@@ -31,6 +34,7 @@ angular.module('CitiesApp', [])
     }, {
       rating: 4,
       title: 'Sydney, Australia',
+      continent: 'Australia',
       text: 'Australia’s biggest city is an ideal getaway no matter the season. Dine al fresco and ' +
         'head to Bondi, Manly, and Redleaf beaches in the summer (remember, that’s during our winter), ' +
         'and explore the city’s vibrant arts and culture calendar through Vivid Sydney come winter. ' +
@@ -57,5 +61,19 @@ angular.module('CitiesApp', [])
       return Object.keys(continents).some(function (name) {
         return !continents[name];
       });
+    };
+
+    $scope.resetContinents = function () {
+      $scope.continents = {
+        europe: true,
+        americas: true,
+        asia: true,
+        africa: true,
+        australia: true
+      };
+    };
+
+    $scope.visibleContinent = function (city) {
+      return $scope.continents[city.continent.toLowerCase()];
     };
   });

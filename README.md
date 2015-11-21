@@ -397,10 +397,25 @@ framework. All we need is to change the data on the `scope` object, and all dire
 using the data, even in their expressions will be updated without us programming any
 logic.
 
+When we click on the "Reset filter" we should set all continents back to being `true`.
+This is a little to much code to place inside HTML attribute. Thus we should just
+create a function on the scope and call it when the `ng-click` runs.
+
+```html
+<button type="button" class="btn btn-info"
+  ng-show="... something here ..."
+  ng-click="resetContinents()">Reset filter</button>
+```
+
 ### Exercise - toggle each continent's button
 
 * Toggle each continent using `ng-click` example shown above.
   Make sure each button is working independently.
+* Implement the method called when the button "Reset filter" is pressed.
+  Overall, the unit tests in 'CitiesApp controller - filtering' should pass.
+
+## Finishing the filtering widget
+
 
 ## Extra reading
 
