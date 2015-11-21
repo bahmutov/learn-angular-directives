@@ -41,7 +41,8 @@
         <div class="col-xl-6 col-xl-offset-3">
           <div class="btn-group" role="group" aria-label="Continent filter">
             <button type="button" class="btn btn-secondary"
-              ng-class="{ active: continents.europe }">Europe</button>
+              ng-class="{ active: continents.europe }"
+              ng-click="continents.europe = !continents.europe">Europe</button>
             <button type="button" class="btn btn-secondary"
               ng-class="{ active: continents.americas }">Americas</button>
             <button type="button" class="btn btn-secondary"

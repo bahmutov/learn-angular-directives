@@ -378,7 +378,29 @@ We want to add dynamic behavior to this filtering widget.
 
 ## Reacting to the user events, like mouse clicks
 
+In order to finish the filtering widget, a click on a button with a continent's name
+must change the data on the scope. How do we do this in AngularJS? Let us handle the
+simplest event - the mouse click. A click on the "Europe" button should toggle
+the `scope.continents.europe` value. For such basic cases we can change the scope
+property directly in the directive's expression.
 
+```html
+<button type="button" class="btn btn-secondary active"
+  ng-click="continents.europe = !continents.europe">Europe</button>
+```
+
+Try clicking on the button "Europe". If you have added the active class
+binding using `ng-class` and showing / hiding to the "Reset filter" button
+you should notice the changing state of the "Europe" button and appearing / disappearing
+of the "Reset filter" button. This is the power of the two-way data binding in Angular
+framework. All we need is to change the data on the `scope` object, and all directives
+using the data, even in their expressions will be updated without us programming any
+logic.
+
+### Exercise - toggle each continent's button
+
+* Toggle each continent using `ng-click` example shown above.
+  Make sure each button is working independently.
 
 ## Extra reading
 
